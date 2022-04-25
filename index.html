@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Kaban </title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <div class="container pt-5">
+
+
+        <ul class="nav justify-content-end">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="bi bi-file-earmark-plus"></i> Criar nova Tarefa
+            </button>
+        </ul>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tarefa</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="fmrTarefa ">
+                            <div class="mb-3">
+                                <label for="FormTarefa" class="form-label">Tarefa</label>
+                                <input type="text" id="titulo" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-select" id="etapa" aria-label="aFazer">
+                                    <option selected>Escolha um estágio </option>
+                                    <option value="AFazer">A Fazer</option>
+                                    <option value="Emprogresso">Em progresso</option>
+                                    <option value="Feito">Feito</option>
+                                    <option value="Aprovado">Aprovado</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="FormDescricao" class="form-label">Descrição</label>
+                                <textarea class="form-control" id="descricao" rows="3"></textarea>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="salvar()">Salvar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="boards row">
+            <div class="board col-md-3">
+                <div class="card  bg-primary">
+                    <div class="card-body">
+                        <h3 class="text-warning text-light">A Fazer</h3>
+                    </div>
+                </div>
+                <div class="dropzone" id="AFazer">
+
+                </div>
+            </div>
+            <div class="board col-md-3">
+                <div class="card bg-warning">
+                    <div class="card-body">
+                        <h3 class="text-warning  text-white ">Em progresso</h3>
+                    </div>
+                </div>
+
+                <div class="dropzone" id="Emprogresso">
+
+                </div>
+            </div>
+            <div class="board col-md-3">
+                <div class="card bg-secondary">
+                    <div class="card-body">
+                        <h3 class="text-warning  text-white ">Feito</h3>
+                    </div>
+                </div>
+                <div class="dropzone" id="Feito">
+
+                </div>
+            </div>
+            <div class="board col-md-3">
+                <div class="card bg-success">
+                    <div class="card-body">
+                        <h3 class="text-warning  text-white ">Aprovado</h3>
+                    </div>
+                </div>
+                <div class="dropzone" id="Aprovado">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header text-white bg-primary ">
+            <i class="bi bi-bell-fill"></i>
+            <strong class="me-auto">Tarefa Atualizada</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Olá, sua tarefa foi atualizada
+        </div>
+    </div>
+</div>
+<script src='main.js'></script>
+
+</html>
