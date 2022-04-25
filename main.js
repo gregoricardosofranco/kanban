@@ -27,6 +27,7 @@ function montar(tbTarefas) {
             case "Aprovado":
                 cardCor = "bg-success";
                 break;
+            
         }
         console.log(divEtapa);
 
